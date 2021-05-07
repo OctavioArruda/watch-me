@@ -22,8 +22,11 @@ interface MovieProps {
   Runtime: string;
 }
 
-export function MainContent() {
-	const [selectedGenreId, setSelectedGenreId] = useState(1);
+interface MainContextProps {
+	selectedGenreId: number;
+}
+
+export function MainContent({ selectedGenreId } : MainContextProps) {
 	const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 	const [movies, setMovies] = useState<MovieProps[]>([]);
 	const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);

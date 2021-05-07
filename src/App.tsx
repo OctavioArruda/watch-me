@@ -14,10 +14,18 @@ import './styles/sidebar.scss';
 import './styles/content.scss';
 
 export function App() {
+	const [selectedGenreId, setSelectedGenreId] = useState<number>(1);
+
   return (
-    <>
-			<SideBar />
-			<MainContent />
-    </>
+    <div className="main-container">
+			<SideBar
+				selectedGenreId={selectedGenreId}
+				setSelectedGenreId={setSelectedGenreId}
+			/>
+
+			<MainContent
+				selectedGenreId={selectedGenreId}
+			/>
+    </div>
   )
 }

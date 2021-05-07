@@ -4,18 +4,22 @@ import { api } from "../../services/api";
 import { Button } from '../../components/Button';
 import './styles.scss';
 
+interface SideBarProps {
+	selectedGenreId: number;
+	setSelectedGenreId: (id: number) => void;
+}
+
 interface GenreResponseProps {
   id: number;
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
   title: string;
 }
 
-export function SideBar() {
-	const [selectedGenreId, setSelectedGenreId] = useState(1);
-
+export function SideBar({ setSelectedGenreId, selectedGenreId } : SideBarProps) {
 	const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   function handleClickButton(id: number) {
+		console.log({id});
     setSelectedGenreId(id);
   }
 
